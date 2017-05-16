@@ -85,12 +85,16 @@ Installation
 
     $ pip install lollipop-hypothesis
 
+    # install optional package for regex support
+    $ pip install lollipop-hypothesis[regex]
+
 Requirements
 ============
 
 - Python >= 2.7 and <= 3.6
-- `hypothesis <https://pypi.python.org/pypi/hypothesis>`_ >= 3.8
 - `lollipop <https://pypi.python.org/pypi/lollipop>`_ >= 1.1.3
+- `hypothesis <https://pypi.python.org/pypi/hypothesis>`_ >= 3.8
+- (optional) `hypothesis-regex <https://pypi.python.org/pypi/hypothesis-regex>`_ >= 0.1
 
 Project Links
 =============
