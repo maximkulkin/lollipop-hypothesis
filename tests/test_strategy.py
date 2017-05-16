@@ -3,6 +3,7 @@ import lollipop.validators as lv
 from hypothesis import given
 import hypothesis.strategies as hs
 from lollipop_hypothesis import type_strategy, new_registry
+import re
 import six
 import six.moves
 from collections import namedtuple
@@ -30,6 +31,11 @@ class TestRegistry:
     @given(type_strategy(lt.String(validate=lv.Length(min=3, max=10))))
     def test_string_min_and_max_length_validator(self, value):
         assert 3 <= len(value) <= 10
+
+    EMAIL_REGEX = '^[^@]+@(\w{2,}\.)+\w{2,}$'
+    @given(type_strategy(lt.String(validate=lv.Regexp(EMAIL_REGEX))))
+    def test_string_regex(self, value):
+        assert re.match(self.EMAIL_REGEX, value)
 
     @given(type_strategy(lt.Integer()))
     def test_integer(self, value):

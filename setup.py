@@ -26,6 +26,9 @@ setup(
         'lollipop>=1.1.3',
         'six>=1.10',
     ],
+    extras_require={
+        'regex': ['hypothesis-regex'],
+    },
     setup_requires=['pytest-runner'],
     tests_require=['pytest'],
     classifiers=[
