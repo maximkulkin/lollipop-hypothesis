@@ -10,7 +10,7 @@ def read(path):
 
 setup(
     name='lollipop-hypothesis',
-    version='0.1',
+    version='0.2',
     description=('Library to generate random test data using Hypothesis '
                  'based on Lollipop schema'),
     long_description=read('README.rst'),
