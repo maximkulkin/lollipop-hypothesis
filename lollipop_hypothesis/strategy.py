@@ -11,6 +11,7 @@ import lollipop.validators as lv
 import lollipop.utils as lu
 import hypothesis.strategies as hs
 import hypothesis.extra.datetime as hsd
+from .regex import strategy as regex_strategy
 import inspect
 import six
 
@@ -101,6 +102,11 @@ def any_strategy(registry, type, context=None):
 
 
 def string_strategy(registry, type, context=None):
+    regex_validators = find_validators(type.validators, lv.Regexp)
+    if regex_validators:
+        validator = regex_validators[0]
+        return regex_strategy(validator.regexp)
+
     length_validators = find_validators(type.validators, lv.Length)
     min_length, max_length = None, None
     for validator in length_validators:
